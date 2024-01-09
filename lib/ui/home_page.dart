@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:menu_app_ui/ui/detail_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({required Key key}) : super(key: key);
@@ -171,26 +172,32 @@ class _MainPageState extends State<MainPage> {
               Positioned(
                 top: 220,
                 right: 50,
-                child: Container(
-                  height: 190,
-                  width: 190,
-                  // color: Colors.red,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        colorFilter: ColorFilter.mode(
-                            Colors.black.withOpacity(0.3), BlendMode.darken),
-                        image: const NetworkImage(
-                          'https://cdn.pixabay.com/photo/2015/01/03/18/20/salad-587673_1280.jpg',
-                        ),
-                        fit: BoxFit.cover),
-                    borderRadius: BorderRadius.circular(97.0),
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //       color: Colors.black.withOpacity(0.3),
-                    //       blurRadius: 2,
-                    //       spreadRadius: 1,
-                    //       offset: const Offset(2, 4))
-                    // ],
+                child: InkWell(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DetailPage())),
+                  child: Container(
+                    height: 190,
+                    width: 190,
+                    // color: Colors.red,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.3), BlendMode.darken),
+                          image: const NetworkImage(
+                            'https://cdn.pixabay.com/photo/2015/01/03/18/20/salad-587673_1280.jpg',
+                          ),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(97.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 2,
+                            spreadRadius: 1,
+                            offset: const Offset(2, 4))
+                      ],
+                    ),
                   ),
                 ),
               ),
